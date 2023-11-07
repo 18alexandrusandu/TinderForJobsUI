@@ -120,7 +120,17 @@ class _ChatListState extends State<ChatList> {
           color: Colors.white,
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            ElevatedButton(onPressed: () {}, child: Icon(Icons.home_filled)),
+            ElevatedButton(
+                onPressed: () {
+                  print("send me home ${currentUser!.name}");
+                  Navigator.push(context, MaterialPageRoute(builder: (builder) {
+                    return MyHomePage(
+                        title: "T for Jobs",
+                        email: currentUser!.email,
+                        name: currentUser!.name);
+                  }));
+                },
+                child: Icon(Icons.home_filled)),
             ElevatedButton(onPressed: () {}, child: Icon(Icons.explore)),
             ElevatedButton(
                 onPressed: () async {
